@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import Auth from './components/Auth/Auth';
-import Home from './site/Home';
+import Auth from './Auth/Auth';
+import Home from '../site/Home'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 type TokenUpdateType = {
     sessionToken: string | undefined | null
 }
 
-export default class App extends Component<{}, TokenUpdateType> {
+export default class TokenUpdate extends Component<{}, TokenUpdateType> {
     constructor(props: TokenUpdateType) {
         super(props)
         this.state = {
