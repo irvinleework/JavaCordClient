@@ -23,6 +23,7 @@ const DisplayAuth = (props: AuthProps) => {
                 <Row>
                     <Col>
                         <h1 id="loginHeader">JAVACORD</h1>
+                        <i className="fas fa-code"></i>
                     </Col>
                     <Col>
                         <Form className="login" onSubmit={props.handleSubmit}>

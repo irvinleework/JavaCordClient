@@ -28,6 +28,7 @@ const ChannelEntryDisplay = (props: AuthProps) => {
                             {cprops.entry}
                         </div>
                         <Button className="button" type="button" outline onClick={() => {props.editUpdateChannelEntry(cprops); props.updateTrue()}}>Edit</Button>
+                        <Button className="button" type="button" outline onClick={() => {props.deleteChannelEntry(cprops.id); props.createTrue()}}>Delete</Button>
                         </>
                     )
                 })}

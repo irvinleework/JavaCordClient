@@ -18,6 +18,7 @@ type AuthProps = {
     createTrue: () => void
     updateTrue: () => void
     sessionToken: string | undefined | null
+    
 }
 
 
@@ -37,12 +38,8 @@ const ChannelDisplay = (props: AuthProps) => {
                                     </ul>
                                 </div>
                                 <Button className="btn" type="button" outline onClick={() => {props.editUpdateChannel(cprops); props.updateTrue()}}>Edit Channel</Button>
+                                <Button className="btn" type="button" outline onClick={() => {props.deleteChannel(cprops.id); props.updateTrue()}}>Delete Channel</Button>
                                 </Col>
-                                <div className="sidebar-route">
-                                    <Routes>
-                                        <Route path={`${cprops.name}`}><ChannelEntry sessionToken={props.sessionToken}></ChannelEntry></Route>
-                                    </Routes>
-                                </div>
                                 </>
                             )
                         })}
