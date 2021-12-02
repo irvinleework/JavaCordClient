@@ -8,3 +8,5 @@ switch(window.location.hostname) {
         APIURL = "https://javacord.herokuapp.com"
 }
 export default APIURL;
+
+// adfadfadf
