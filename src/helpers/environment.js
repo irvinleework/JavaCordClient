@@ -5,6 +5,6 @@ switch(window.location.hostname) {
         APIURL = "http://localhost:3000";
         break;
         case 'javacord.herokuapp.com':
-        APIURL = "https://javacord.herokuapp.com/"
+        APIURL = "https://javacord.herokuapp.com"
 }
 export default APIURL;
