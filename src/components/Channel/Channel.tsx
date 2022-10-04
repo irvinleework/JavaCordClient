@@ -4,13 +4,14 @@ import ChannelCreate from './ChannelCreate';
 import ChannelDisplay from './ChannelDisplay';
 import ChannelUpdate from './ChannelUpdate';
 
-type ChannelType = {
+export interface ChannelType {
     name: string
     id: string
 }
 
 type AuthProps = {
     sessionToken: string | undefined | null
+    toggleModal: () => void
 }
 
 type ChannelState = {
@@ -109,7 +110,7 @@ export default class Channel extends Component<AuthProps, ChannelState> {
             <div>
                 {this.state.updateActive ? <ChannelUpdate updatedChannel={this.state.updatedChannel} updateFalse={this.updateFalse} getChannel={this.getChannel} sessionToken={this.props.sessionToken}/> : <></>}
                 {this.state.createActive ? <ChannelCreate getChannel={this.getChannel} sessionToken={this.props.sessionToken}/> : <></> }
-                <ChannelDisplay deleteChannel={this.deleteChannel} updateTrue={this.updateTrue} editUpdateChannel={this.editUpdateChannel} createTrue={this.createTrue} channel={this.state.channel} getChannel={this.getChannel} sessionToken={this.props.sessionToken}></ChannelDisplay>
+                <ChannelDisplay deleteChannel={this.deleteChannel} updateTrue={this.updateTrue} editUpdateChannel={this.editUpdateChannel} createTrue={this.createTrue} channel={this.state.channel} getChannel={this.getChannel} sessionToken={this.props.sessionToken} toggleModal={this.props.toggleModal}></ChannelDisplay>
             </div>
         )
     }

@@ -4,18 +4,22 @@ import APIURL from '../../helpers/environment'
 import ChannelEntryUpdate from './ChannelEntryUpdate';
 import ChannelEntryCreate from './ChannelEntryCreate'
 import ChannelEntryDisplay from './ChannelEntryDisplay'
+import Channel from '../Channel/Channel';
+import ChannelType from '../Channel/Channel'
+// import Channel from '../Channel/Channel';
 
 
-type ChannelEntryType = {
+
+interface ChannelEntryType {
     entry: string
     id: string
 }
 
-type AuthProps = {
+interface AuthProps {
     sessionToken: string | undefined | null
 }
 
-type ChannelEntryState = {
+interface ChannelEntryState {
     channelEntry: ChannelEntryType[]
     updateActive: boolean
     createActive: boolean
@@ -35,9 +39,11 @@ export default class ChannelEntry extends Component<AuthProps, ChannelEntryState
             }
         }
     }
-    getChannelEntry = () => {
+    
+    getChannelEntry = (channelId: string) => {
         console.log("get channel entry called")
-        fetch(`${APIURL}/channelentry/`, {
+        console.log(channelId)
+        fetch(`${APIURL}/channelentry/${channelId}`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
@@ -54,9 +60,10 @@ export default class ChannelEntry extends Component<AuthProps, ChannelEntryState
         })
         .catch(err => console.log(err))
     }
+    
 
     componentDidMount = () => {
-        this.getChannelEntry()
+        this.getChannelEntry(``)
     }
     createTrue = () => {
         this.setState({createActive: true})
@@ -95,7 +102,7 @@ export default class ChannelEntry extends Component<AuthProps, ChannelEntryState
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)
-                    this.getChannelEntry()
+                    this.getChannelEntry("")
                 })
                 .catch(err => console.log(err))
             } else {

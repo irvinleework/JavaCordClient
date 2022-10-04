@@ -4,6 +4,8 @@ import {Row, Button, Col} from 'reactstrap';
 import ChannelCreate from './ChannelCreate'
 import ChannelEntry from '../ChannelEntry/ChannelEntry';
 import ChannelEntryDisplay from '../ChannelEntry/ChannelEntryDisplay';
+import Emitter from '../../services/Emitter'
+
 
 type ChannelType = {
     name: string
@@ -18,8 +20,9 @@ type AuthProps = {
     createTrue: () => void
     updateTrue: () => void
     sessionToken: string | undefined | null
-    
+    toggleModal: () => void
 }
+
 
 
 const ChannelDisplay = (props: AuthProps) => {
@@ -34,7 +37,7 @@ const ChannelDisplay = (props: AuthProps) => {
                                 <Col>
                                 <div>
                                     <ul className="sidebar-list list-unstyled" key={key}>
-                                        <li><Link to={{pathname: `${cprops.name}`}}>{cprops.name}</Link></li>
+                                        <li><Button onClick={() => {props.toggleModal(); console.log('button clicked')}}>{cprops.name}</Button></li>
                                     </ul>
                                 </div>
                                 <Button className="btn" type="button" outline onClick={() => {props.editUpdateChannel(cprops); props.updateTrue()}}>Edit Channel</Button>

@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
 import {Modal, Form, ModalHeader, ModalBody, Label, Button, Input, FormGroup} from 'reactstrap'
 
+
 type AuthProps = {
     sessionToken: string | undefined | null
-    getChannelEntry: () => void
+    getChannelEntry: (id: string) => void
     updatedChannelEntry: ChannelEntryType
     updateFalse: () => void
 }
@@ -38,7 +39,7 @@ export default class ChannelEntryUpdate extends Component<AuthProps, ChannelEntr
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            this.props.getChannelEntry()
+            this.props.getChannelEntry('')
             this.props.updateFalse()
         })
     }

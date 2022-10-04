@@ -5,11 +5,12 @@ import ChannelEntryCreate from './ChannelEntryCreate';
 type ChannelEntryType = {
     entry: string
     id: string
+    channelId: string
 }
 
 type AuthProps = {
     channelEntry: ChannelEntryType[]
-    getChannelEntry: () => void
+    getChannelEntry: (id: string) => void
     deleteChannelEntry: (id: string) => void
     editUpdateChannelEntry: (id: ChannelEntryType) => void
     createTrue: () => void
@@ -35,7 +36,6 @@ const ChannelEntryDisplay = (props: AuthProps) => {
                 <ChannelEntryCreate sessionToken={props.sessionToken} getChannelEntry={props.getChannelEntry}/>
             </Row>
         </div>
-        
     )
 }
 

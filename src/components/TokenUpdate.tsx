@@ -4,16 +4,19 @@ import Home from '../site/Home'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 type TokenUpdateType = {
-    sessionToken: string | undefined | null
+    sessionToken: string | undefined | null,
+    createActive: boolean
 }
 
 export default class TokenUpdate extends Component<{}, TokenUpdateType> {
     constructor(props: TokenUpdateType) {
         super(props)
         this.state = {
-            sessionToken: undefined
+            sessionToken: undefined,
+            createActive: false
         }
         this.updateLocalStorage = this.updateLocalStorage.bind(this)
+        this.toggleModal = this.toggleModal.bind(this)
     }
 
     componentDidMount = (() => {
@@ -38,9 +41,13 @@ export default class TokenUpdate extends Component<{}, TokenUpdateType> {
         })
     }
 
+    toggleModal = () => {
+        this.setState({createActive: !this.state.createActive})
+    }
+
     viewConductor = () => {
         return this.state.sessionToken !== undefined ?
-        <Home sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage}/> :
+        <Home sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage} isOpen={this.state.createActive} toggleModal={this.toggleModal}/> :
         <Auth updateLocalStorage={this.updateLocalStorage} clearLocalStorage={this.clearLocalStorage}/>
     }
 

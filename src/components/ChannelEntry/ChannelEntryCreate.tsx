@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
 import {Form, Input, Button} from "reactstrap"
 
+
 type AuthProps = {
     sessionToken: string | undefined | null
-    getChannelEntry: () => void
+    getChannelEntry: (id: string) => void
 }
 type ChannelEntryType = {
     entry: string
@@ -36,7 +37,7 @@ export default class ChannelEntryCreate extends Component<AuthProps, ChannelEntr
             this.setState ({
                 entry: ""
             })
-            this.props.getChannelEntry()
+            this.props.getChannelEntry('')
         })
         .catch(err => console.log(err))
     }
