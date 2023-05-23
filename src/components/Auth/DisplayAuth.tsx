@@ -19,20 +19,20 @@ type AuthProps = {
 const DisplayAuth = (props: AuthProps) => {
     return(
         <div id="loginBackground">
-            <Container id="loginContainer">
+            <Container className="loginContainer">
                 <Row>
-                    <Col>
+                    <div>
                         <h1 id="loginHeader">JAVACORD</h1>
-                        <i className="fas fa-code"></i>
-                    </Col>
-                    <Col>
+                        <i className="fas fa-code fa-5x"></i>
+                    </div>
+                    <div>
                         <Form className="login" onSubmit={props.handleSubmit}>
                             <h3>{props.title()}</h3>
                             {props.signupFields()}
                             <Button className="loginButton" onClick={props.logToggle}>{props.logSignButton()}</Button>
                             <Button className="loginButton" type="submit">{props.submitButton()} </Button>
                         </Form>
-                    </Col>
+                    </div>
                 </Row>
             </Container>
         </div>

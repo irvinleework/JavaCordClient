@@ -1,25 +1,27 @@
 import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
-import {Form, Input, Button} from "reactstrap"
-
+import {Form, Input, Button, Row} from "reactstrap"
+import { withRouter, WithRouterProps } from '../../services/withRouter'
 
 type AuthProps = {
     sessionToken: string | undefined | null
-    getChannelEntry: (id: string) => void
+    getChannelEntry: () => void
+    channel: any
 }
 type ChannelEntryType = {
     entry: string
 }
-export default class ChannelEntryCreate extends Component<AuthProps, ChannelEntryType> {
-    constructor(props: AuthProps) {
+class ChannelEntryCreate extends Component<AuthProps & WithRouterProps, ChannelEntryType> {
+    constructor(props: AuthProps & WithRouterProps) {
         super(props)
         this.state = {
             entry: ""
         }
     }
     createChannelEntry = (e: any) => {
-        e.preventDefault()
-        fetch(`${APIURL}/channelentry/create`, {
+        // e.preventDefault()
+        const { match } = this.props;
+        fetch(`${APIURL}/channel/${match.params.channelId}/channelentry/create`, {
             method: "POST",
             body: JSON.stringify({
                 channelentry: {
@@ -37,18 +39,24 @@ export default class ChannelEntryCreate extends Component<AuthProps, ChannelEntr
             this.setState ({
                 entry: ""
             })
-            this.props.getChannelEntry('')
+            this.props.getChannelEntry()
         })
         .catch(err => console.log(err))
     }
+    
     render(){
         return(
             <Form onSubmit={this.createChannelEntry}>
-                <Input className="ChannelEntryInput" required type="text" value={this.state.entry} onChange={(e) => this.setState({entry: (e.target.value)})}></Input>
-                <div id="button">
-                    <Button className="createChannelEntry" type="submit">Enter</Button>
+                <div className="channelEntryInputWrapper">
+                
+                        <Input className="channelEntryInput" required type="text" placeholder="Message" value={this.state.entry} onChange={(e) => this.setState({entry: (e.target.value)})}></Input>
+                    
+                        {/* <Button className="createChannelEntry" type="submit">Enter</Button> */}
+                    
+                    
                 </div>
             </Form>
         )
     }
 }
+export default withRouter(ChannelEntryCreate)

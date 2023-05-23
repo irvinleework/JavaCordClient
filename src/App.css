@@ -1,38 +1,92 @@
 .App {
-  text-align: center;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar {
   display: flex;
+  height: 100vh;
+  overflow: scroll initial;
+  flex-direction: row;
+}
+#loginBackground {
+  height: 100vh;
+  background: #9370DB;
+}
+
+.loginContainer {
+  position: relative;
+  background-size: cover;
+  text-align: center;
+  margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: 20px;
+  background: gray;
+  top: 100px;
+}
+#loginHeader {
+  font-family: "Lucida Console", "Courier New", monospace ;
+  font-size: 100px;
+  font-weight: 700;
+}
+.loginInput {
+  margin: 5px;
+}
+.loginTitle {
+  font-size: 20px
+}
+.entryBorder {
+  display: flex;
+  position: absolute;
+  border: 1px solid black;
+  left: 270px;
+  height: 1000px;
+  bottom: 1px;
+  width: 2000px;
+  overflow-y:scroll;
+  overflow-x: hidden;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: flex-start;
+}
+.channelEntryList {
+  list-style: none;
+  width: 100%;
+  font-family: "Lucida Console", "Courier New", monospace ;
+  font-size: 23px;
+}
+.channelEntryUser {
+  font-weight: 700;
+}
+
+.channelEditButton {
   color: white;
+  position: relative;
+  left: 160px;
+  bottom: 28px;
 }
-
-.App-link {
-  color: #61dafb;
+.channelEditButton :hover {
+  color: darkgray;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.channelDeleteButton {
+  position: relative;
+  left: 187px;
+  bottom: 52px;
+  margin-bottom: -10px;
+}
+.channelDeleteButton :hover {
+  color: darkgray;
+}
+.linkButton {
+  width: 200px;
+  height: 50px;
+  margin-left: 20px;
+}
+.channelEntryInput {
+  width: 1900px;
+  height: 50px;
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  flex-direction: row;
 }

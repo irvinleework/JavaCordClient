@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import APIURL from '../../helpers/environment';
 import {Modal, Form, ModalHeader, ModalBody, Label, Button, Input, FormGroup} from 'reactstrap'
-
+import { withRouter, WithRouterProps } from '../../services/withRouter'
 
 type AuthProps = {
     sessionToken: string | undefined | null
@@ -11,20 +11,21 @@ type AuthProps = {
 }
 type ChannelEntryType = {
     entry: string
-    id: string
+    channelEntryId: string
 }
 
-export default class ChannelEntryUpdate extends Component<AuthProps, ChannelEntryType> {
-    constructor(props: AuthProps) {
+class ChannelEntryUpdate extends Component<AuthProps & WithRouterProps, ChannelEntryType> {
+    constructor(props: AuthProps & WithRouterProps) {
         super(props)
         this.state = {
             entry: this.props.updatedChannelEntry.entry,
-            id: this.props.updatedChannelEntry.id
+            channelEntryId: this.props.updatedChannelEntry.channelEntryId
         }
     }
     updateChannelEntry = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        fetch(`${APIURL}/channelentry/update/${this.props.updatedChannelEntry.id}`, {
+        const {match} = this.props
+        fetch(`${APIURL}/channel/${match.params.channelId}/channelentry/update/${this.props.updatedChannelEntry.channelEntryId}`, {
             method: "PUT",
             body: JSON.stringify({
                 channelentry: {
@@ -60,3 +61,4 @@ export default class ChannelEntryUpdate extends Component<AuthProps, ChannelEntr
         )
     }
 }
+export default withRouter(ChannelEntryUpdate)

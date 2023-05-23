@@ -10,8 +10,8 @@ type AuthProps = {
 }
 
 type ChannelType = {
-    name: string
-    id: string
+    name?: string
+    channelId: string
 }
 
 export default class ChannelUpdate extends Component<AuthProps, ChannelType> {
@@ -19,13 +19,13 @@ export default class ChannelUpdate extends Component<AuthProps, ChannelType> {
         super(props)
         this.state = {
             name: this.props.updatedChannel.name,
-            id: this.props.updatedChannel.id
+            channelId: this.props.updatedChannel.channelId
         }
     }
 
     updateChannel = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetch(`${APIURL}/channel/update/${this.props.updatedChannel.id}`, {
+        fetch(`${APIURL}/channel/update/${this.props.updatedChannel.channelId}`, {
             method: "PUT",
             body: JSON.stringify({
                 channel: {

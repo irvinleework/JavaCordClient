@@ -4,38 +4,45 @@ import ChannelEntryCreate from './ChannelEntryCreate';
 
 type ChannelEntryType = {
     entry: string
-    id: string
-    channelId: string
+    channelEntryId: string
+    user?: any
+    userName?: string
 }
 
 type AuthProps = {
     channelEntry: ChannelEntryType[]
-    getChannelEntry: (id: string) => void
-    deleteChannelEntry: (id: string) => void
-    editUpdateChannelEntry: (id: ChannelEntryType) => void
-    createTrue: () => void
+    getChannelEntry: () => void
+    deleteChannelEntry: (channelEntryId: string) => void
+    editUpdateChannelEntry: (channelEntryId: ChannelEntryType) => void
     updateTrue: () => void
     sessionToken: string | undefined | null
+    channel: any
 }
 
 const ChannelEntryDisplay = (props: AuthProps) => {
     return(
-        <div className="entry border">
-            <Row>
-                {props.channelEntry.map((cprops: ChannelEntryType, key) => {
+        <div className="entryBorder">
+            
+                {props.channelEntry.map((cprops: ChannelEntryType) => {
                     return(
                         <>
-                        <div className="Channel Entry" key={key}>
-                            {cprops.entry}
+                        <div className='channelEntryText'>
+
+                        <ul className="channelEntryList" key={cprops.channelEntryId}>
+                            <li className="channelEntryUser">{cprops.user.userName}</li>
+                            <li>{cprops.entry}</li>
+                        </ul>
                         </div>
+
                         <Button className="button" type="button" outline onClick={() => {props.editUpdateChannelEntry(cprops); props.updateTrue()}}>Edit</Button>
-                        <Button className="button" type="button" outline onClick={() => {props.deleteChannelEntry(cprops.id); props.createTrue()}}>Delete</Button>
+                        <Button className="button" type="button" outline onClick={() => {props.deleteChannelEntry(cprops.channelEntryId)}}>Delete</Button>
                         </>
                     )
                 })}
-                <ChannelEntryCreate sessionToken={props.sessionToken} getChannelEntry={props.getChannelEntry}/>
-            </Row>
-        </div>
+            <div className='channelEntryInput'>
+            <ChannelEntryCreate sessionToken={props.sessionToken} getChannelEntry={props.getChannelEntry} channel={props.channel}/>
+            </div>
+         </div>
     )
 }
 

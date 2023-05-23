@@ -54,33 +54,33 @@ export default class Auth extends Component<AuthProps, AuthState> {
     signupFields = () => !this.state.login ?
     (
         <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className='loginTitle'>Email</label>
             <br/>
             <input className="loginInput" required type="email" id="email" placeholder="Enter Email" value={this.state.email} onChange={(e) => this.setState({email: (e.target.value)})} />
             <br/>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className='loginTitle'>Password</label>
             <br/>
             <input className="loginInput" required type="password" id="password" placeholder="Enter Password" value={this.state.password} onChange={(e) => this.setState({password: (e.target.value)})} />
             <br/>
-            <label htmlFor="userName">Username</label>
+            <label htmlFor="userName" className='loginTitle'>Username</label>
             <br/>
             <input className="loginInput" required type="text" id="userName" placeholder="Enter Userame" value={this.state.userName} onChange={(e) => this.setState({userName: (e.target.value)})} />
             <br/>
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="firstName" className='loginTitle'>First Name</label>
             <br/>
             <input className="loginInput" required type="text" id="firstName" placeholder="Enter First Name" value={this.state.firstName} onChange={(e) => this.setState({firstName: (e.target.value)})} />
             <br/>
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="lastName" className='loginTitle'>Last Name</label>
             <br/>
             <input className="loginInput" required type="text" id="lastName" placeholder="Enter Last Name" value={this.state.lastName} onChange={(e) => this.setState({lastName: (e.target.value)})} />
         </div>
     ) : (
         <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className='loginTitle'>Email</label>
             <br/>
             <input className="loginInput" required type="email" id="email" placeholder="Enter Email" value={this.state.email} onChange={(e) => this.setState({email: (e.target.value)})} />
             <br/>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className='loginTitle'>Password</label>
             <br/>
             <input className="loginInput" required type="password" id="password" placeholder="Enter Password" value={this.state.password} onChange={(e) => this.setState({password: (e.target.value)})} />
         </div>

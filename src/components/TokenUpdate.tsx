@@ -2,10 +2,15 @@ import React, {Component} from 'react';
 import Auth from './Auth/Auth';
 import Home from '../site/Home'
 import {BrowserRouter as Router} from 'react-router-dom'
+import Sidebar from '../site/Sidebar';
 
 type TokenUpdateType = {
     sessionToken: string | undefined | null,
-    createActive: boolean
+    email: string,
+    password: string,
+    userName: string,
+    firstName: string,
+    lastName: string
 }
 
 export default class TokenUpdate extends Component<{}, TokenUpdateType> {
@@ -13,10 +18,13 @@ export default class TokenUpdate extends Component<{}, TokenUpdateType> {
         super(props)
         this.state = {
             sessionToken: undefined,
-            createActive: false
+            email: "",
+            password: "",
+            userName: "",
+            firstName: "",
+            lastName: ""
         }
         this.updateLocalStorage = this.updateLocalStorage.bind(this)
-        this.toggleModal = this.toggleModal.bind(this)
     }
 
     componentDidMount = (() => {
@@ -41,13 +49,9 @@ export default class TokenUpdate extends Component<{}, TokenUpdateType> {
         })
     }
 
-    toggleModal = () => {
-        this.setState({createActive: !this.state.createActive})
-    }
-
     viewConductor = () => {
         return this.state.sessionToken !== undefined ?
-        <Home sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage} isOpen={this.state.createActive} toggleModal={this.toggleModal}/> :
+        <Home sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage}/> :
         <Auth updateLocalStorage={this.updateLocalStorage} clearLocalStorage={this.clearLocalStorage}/>
     }
 
