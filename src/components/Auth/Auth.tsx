@@ -15,6 +15,7 @@ type AuthState = {
 type AuthProps = {
     updateLocalStorage: (newToken: string) => void
     clearLocalStorage: () => void
+    // logToggle: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export default class Auth extends Component<AuthProps, AuthState> {

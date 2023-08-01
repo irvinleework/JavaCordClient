@@ -6,47 +6,47 @@ import TokenUpdate from './components/TokenUpdate'
 import './App.css';
 
 
-// type TokenUpdateType = {
-//     sessionToken: string | undefined | null,
-// }
+type TokenUpdateType = {
+    sessionToken: string | undefined | null,
+}
 
 
 // export default class App extends Component<{}, TokenUpdateType> {
-    // constructor(props: TokenUpdateType) {
-    //     super(props)
-    //     this.state = {
-    //         sessionToken: undefined          
-    //     }
-    //     this.updateLocalStorage = this.updateLocalStorage.bind(this)
-    // }
+//     constructor(props: TokenUpdateType) {
+//         super(props)
+//         this.state = {
+//             sessionToken: undefined          
+//         }
+//         this.updateLocalStorage = this.updateLocalStorage.bind(this)
+//     }
 
-    // componentDidMount = (() => {
-    //     if(localStorage.getItem("token")) {
-    //         this.setState({
-    //             sessionToken: localStorage.getItem("token")
-    //         })
-    //     }
-    // })
-    // updateLocalStorage = (newToken: string) => {
-    //     localStorage.setItem('token', newToken);
-    //     this.setState({
-    //         sessionToken: newToken
-    //     })
-    // }
+//     componentDidMount = (() => {
+//         if(localStorage.getItem("token")) {
+//             this.setState({
+//                 sessionToken: localStorage.getItem("token")
+//             })
+//         }
+//     })
+//     updateLocalStorage = (newToken: string) => {
+//         localStorage.setItem('token', newToken);
+//         this.setState({
+//             sessionToken: newToken
+//         })
+//     }
 
-    // clearLocalStorage = () => {
-    //     localStorage.clear()
-    //     this.setState({
-    //         sessionToken: undefined
-    //     })
-    // }
+//     clearLocalStorage = () => {
+//         localStorage.clear()
+//         this.setState({
+//             sessionToken: undefined
+//         })
+//     }
 
 
-    // viewConductor = () => {
-    //     return this.state.sessionToken !== undefined ?
-    //     <Home sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage}/> :
-    //     <Auth updateLocalStorage={this.updateLocalStorage} clearLocalStorage={this.clearLocalStorage}/>
-    // }
+//     viewConductor = () => {
+//         return this.state.sessionToken !== undefined ?
+//         <Home sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage}/> :
+//         <Auth updateLocalStorage={this.updateLocalStorage} clearLocalStorage={this.clearLocalStorage}/>
+//     }
     function App() {    
         return(
             <div className='App'>

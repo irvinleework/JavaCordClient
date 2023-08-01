@@ -6,11 +6,11 @@ import Sidebar from '../site/Sidebar';
 
 type TokenUpdateType = {
     sessionToken: string | undefined | null,
-    email: string,
-    password: string,
-    userName: string,
-    firstName: string,
-    lastName: string
+    // email: string,
+    // password: string,
+    // userName: string,
+    // firstName: string,
+    // lastName: string
 }
 
 export default class TokenUpdate extends Component<{}, TokenUpdateType> {
@@ -18,11 +18,11 @@ export default class TokenUpdate extends Component<{}, TokenUpdateType> {
         super(props)
         this.state = {
             sessionToken: undefined,
-            email: "",
-            password: "",
-            userName: "",
-            firstName: "",
-            lastName: ""
+            // email: "",
+            // password: "",
+            // userName: "",
+            // firstName: "",
+            // lastName: ""
         }
         this.updateLocalStorage = this.updateLocalStorage.bind(this)
     }
@@ -41,6 +41,16 @@ export default class TokenUpdate extends Component<{}, TokenUpdateType> {
             sessionToken: newToken
         })
     }
+    // logToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    //     e.preventDefault();
+    //     this.setState({
+    //         // email: "",
+    //         // password: "",
+    //         // userName: "",
+    //         // firstName: "",
+    //         // lastName: "",
+    //     })
+    // }
 
     clearLocalStorage = () => {
         localStorage.clear()
@@ -52,7 +62,7 @@ export default class TokenUpdate extends Component<{}, TokenUpdateType> {
     viewConductor = () => {
         return this.state.sessionToken !== undefined ?
         <Home sessionToken={this.state.sessionToken} clearLocalStorage={this.clearLocalStorage}/> :
-        <Auth updateLocalStorage={this.updateLocalStorage} clearLocalStorage={this.clearLocalStorage}/>
+        <Auth updateLocalStorage={this.updateLocalStorage} clearLocalStorage={this.clearLocalStorage} /*email={this.state.email} password={this.state.password} userName={this.state.userName} firstName={this.state.firstName} lastName={this.state.lastName} logToggle={this.logToggle}*//>
     }
 
     render(){
