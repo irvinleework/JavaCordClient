@@ -90,3 +90,6 @@
   bottom: 0;
   flex-direction: row;
 }
+.friendBox {
+  z-index: 2;
+}
