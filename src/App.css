@@ -36,18 +36,22 @@
 .loginTitle {
   font-size: 20px
 }
-.entryBorder {
+.homeContainer {
   display: flex;
-  position: absolute;
-  border: 1px solid black;
-  left: 270px;
+  flex-direction: row;
+}
+.entryBorder {
+  /* display: flex;
+  position: absolute; */
+  /* border: 1px solid black; */
+  /* left: 270px;
   height: 1000px;
   bottom: 1px;
-  width: 2000px;
+  width: 1700px; */
   overflow-y:scroll;
   overflow-x: hidden;
-  flex-direction: column;
-  align-items: flex-start;
+  /* flex-direction: column;
+  align-items: flex-start; */
 }
 .channelEntryList {
   list-style: none;
@@ -82,14 +86,14 @@
   height: 50px;
   margin-left: 20px;
 }
-.channelEntryInput {
+/* .channelEntryInput {
   width: 1900px;
   height: 50px;
   display: flex;
   position: sticky;
   bottom: 0;
   flex-direction: row;
-}
+} */
 .friendBox {
   z-index: 2;
 }

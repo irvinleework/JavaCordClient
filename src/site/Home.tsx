@@ -68,7 +68,7 @@ deleteChannel = (channelId: string) => {
 }
 render() {
     return(
-        <div>
+        <div className='homeContainer'>
             <Navbar sessionToken={this.props.sessionToken} clearLocalStorage={this.props.clearLocalStorage}/>
             <Sidebar sessionToken={this.props.sessionToken} getChannel={this.getChannel} deleteChannel={this.deleteChannel} channel={this.state.channel} clearLocalStorage={this.props.clearLocalStorage}/>
             <Friendbar sessionToken={this.props.sessionToken} channel={this.state.channel}/>
