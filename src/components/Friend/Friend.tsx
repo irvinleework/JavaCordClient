@@ -48,6 +48,25 @@ class Friend extends Component<AuthProps & WithRouterProps, FriendState> {
         })
         .catch(err => console.log(err))
     }
+    // addFriendList = () => {
+    //     const {match} = this.props;
+    //     fetch(`${APIURL}/channel/adduser/${match.params.channelId}`, {
+    //         method: "POST",
+    //         body: JSON.stringify({
+    //             channelentry: {
+    //                 userName: this.state.userName
+    //             }
+    //         }),
+    //         headers: new Headers({
+    //             "Content-Type": "application/json",
+    //             "Authorization": `${this.props.sessionToken}`
+    //         })
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+
+    //     })
+    // }
     componentDidMount = () => {
         this.getFriendList()
     }

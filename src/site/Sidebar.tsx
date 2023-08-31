@@ -5,7 +5,7 @@ import ChannelEntry from '../components/ChannelEntry/ChannelEntry'
 import { ChannelType } from '../components/Interface/ChannelType';
 import Home from './Home'
 import APIURL from '../helpers/environment'
-
+import Radium from 'radium'
 type AuthProps = {
     sessionToken: string | undefined | null
     clearLocalStorage: () => void
@@ -14,10 +14,16 @@ type AuthProps = {
     channel: ChannelType[]
 }
 
+const styles = {
+    sideBarContainer: {
+        display: "flex",
 
+    }
+
+}
 const Sidebar = (props: AuthProps) => {
     return(
-        <div className='homeContainer'>
+        <div style={styles.sideBarContainer} className='sideBarContainer'>
             <div>
                 <Channel sessionToken={props.sessionToken} getChannel={props.getChannel} deleteChannel={props.deleteChannel} channel={props.channel} clearLocalStorage={props.clearLocalStorage}/>
             </div>
@@ -28,7 +34,7 @@ const Sidebar = (props: AuthProps) => {
 
     )
 }
-export default Sidebar
+export default Radium(Sidebar)
 // export default class Sidebar extends Component<AuthProps, ChannelState> {
 //     constructor(props: AuthProps) {
 //         super(props)

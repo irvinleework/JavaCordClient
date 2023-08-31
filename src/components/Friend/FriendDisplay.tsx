@@ -1,5 +1,5 @@
 import React from "react";
-
+import FriendCreate from './FriendCreate'
 
 type AuthProps = {
     sessionToken: string | undefined | null
@@ -16,6 +16,7 @@ type UserType = {
 const FriendDisplay = (props: AuthProps) => {
     return(
         <div className="friendbox">
+            <FriendCreate sessionToken={props.sessionToken} getFriendList={props.getFriendList}></FriendCreate>
             {props.friend.map((props: UserType) => {
                 return(
                    <>

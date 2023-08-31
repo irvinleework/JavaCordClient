@@ -39,6 +39,7 @@
 .homeContainer {
   display: flex;
   flex-direction: row;
+  flex: 1;
 }
 .entryBorder {
   /* display: flex;
@@ -58,6 +59,11 @@
   width: 100%;
   font-family: "Lucida Console", "Courier New", monospace ;
   font-size: 23px;
+  
+}
+.channelEntryText :hover {
+    background-color: gray;
+  
 }
 .channelEntryUser {
   font-weight: 700;
@@ -86,14 +92,11 @@
   height: 50px;
   margin-left: 20px;
 }
-/* .channelEntryInput {
-  width: 1900px;
-  height: 50px;
-  display: flex;
+.channelEntryInput {
   position: sticky;
   bottom: 0;
   flex-direction: row;
-} */
+}
 .friendBox {
   z-index: 2;
 }
