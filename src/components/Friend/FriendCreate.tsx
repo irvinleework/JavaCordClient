@@ -35,6 +35,7 @@ class FriendCreate extends Component<AuthProps & WithRouterProps, UserType> {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data)
             this.props.getFriendList()
         })
         .catch(err => console.log(err))
@@ -43,6 +44,7 @@ class FriendCreate extends Component<AuthProps & WithRouterProps, UserType> {
             return(
                 <Form onSubmit={this.addFriendList}>
                     <Input className="addFriendInput" required type="text" placeholder="Message" value={this.state.userName} onChange={(e) => this.setState({userName: (e.target.value)})}></Input>
+                    <Button className="createFriendButton" type="submit">Create</Button>
                 </Form>
             )
         }

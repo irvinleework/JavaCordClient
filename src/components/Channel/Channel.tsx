@@ -31,6 +31,9 @@ export default class Channel extends Component<AuthProps, ChannelState> {
             }
         }
     }
+    // getAddedChannel = () => {
+    //     fetch(`${APIURL}/channel/invited/${}`)
+    // }
 
 
     createTrue = () => {

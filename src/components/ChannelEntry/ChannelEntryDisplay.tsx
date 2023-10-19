@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row, Button} from 'reactstrap'
 import ChannelEntryCreate from './ChannelEntryCreate';
-import Radium from 'radium'
+
 
 type ChannelEntryType = {
     entry: string
@@ -19,32 +19,16 @@ type AuthProps = {
     sessionToken: string | undefined | null
     channel: any
 }
-const styles = {
-    container: {
-        display: "flex",
-        border: "1px solid black",
-        height: "100vh",
-        width: "150vh",
-        flexFlow: "column nowrap"
-    },
-    textBoxContainer: {
-        display: "flex",
-        border: "1px solid black",
-        
-    },
-    listNoMargin: {
-        margin: "3px"
-    }
-}
+
 
 const ChannelEntryDisplay = (props: AuthProps) => {
     return(
-        <div style={styles.container} className="entryBorder">
+        <div  className="entryBorder">
             
                 {props.channelEntry.map((cprops: ChannelEntryType) => {
                     return(
-                        <div style={styles.textBoxContainer} className='channelEntryText'>
-                        <ul style={styles.listNoMargin} className="channelEntryList" key={cprops.channelEntryId}>
+                        <div className='channelEntryText'>
+                        <ul /*style={styles.listNoMargin}*/ className="channelEntryList" key={cprops.channelEntryId}>
                             <li className="channelEntryUser">{cprops.user.userName}</li>
                             <li>{cprops.entry}</li>
                         </ul>
@@ -60,4 +44,4 @@ const ChannelEntryDisplay = (props: AuthProps) => {
     )
 }
 
-export default Radium(ChannelEntryDisplay) 
+export default (ChannelEntryDisplay) 

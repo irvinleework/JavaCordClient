@@ -43,8 +43,6 @@ class Friend extends Component<AuthProps & WithRouterProps, FriendState> {
             this.setState({
                 friend: data.User
             })
-            console.log(this.state.friend)
-            console.log(this.state.friend)
         })
         .catch(err => console.log(err))
     }

@@ -46,15 +46,15 @@ class ChannelEntryCreate extends Component<AuthProps & WithRouterProps, ChannelE
     
     render(){
         return(
-            <Form onSubmit={this.createChannelEntry}>
-                <div className="channelEntryInputWrapper">
+            <Form className='inputWrapper' onSubmit={this.createChannelEntry}>
                 
-                        <Input className="channelEntryInput" required type="text" placeholder="Message" value={this.state.entry} onChange={(e) => this.setState({entry: (e.target.value)})}></Input>
+                
+                        <Input className="channelEntryInputBox" required type="text" placeholder="Message" value={this.state.entry} onChange={(e) => this.setState({entry: (e.target.value)})}></Input>
                     
                         {/* <Button className="createChannelEntry" type="submit">Enter</Button> */}
                     
                     
-                </div>
+                
             </Form>
         )
     }

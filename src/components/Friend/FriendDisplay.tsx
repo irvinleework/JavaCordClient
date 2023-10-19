@@ -17,7 +17,7 @@ const FriendDisplay = (props: AuthProps) => {
     return(
         <div className="friendbox">
             <FriendCreate sessionToken={props.sessionToken} getFriendList={props.getFriendList}></FriendCreate>
-            {props.friend.map((props: UserType) => {
+            {props.friend?.map((props: UserType) => {
                 return(
                    <>
                    <ul className="friendList" key={props.userId}>

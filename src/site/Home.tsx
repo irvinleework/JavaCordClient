@@ -40,7 +40,24 @@ export default class Home extends Component<AuthProps, ChannelState> {
             })
             .catch(err => console.log(err))
         }
-
+        getInvitedChannel = () => {
+            fetch(`${APIURL}/channel/invitedchannels`, {
+                method: "GET",
+                headers: new Headers({
+                    "Content-Type": "application/json",
+                    "Authorization": `${this.props.sessionToken}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    channel: data
+                })
+                console.log(this.state.channel, "invited channel called")
+            })
+            .catch(err => console.log(err))
+        }
 componentDidMount = () => {
     this.getChannel()
 }

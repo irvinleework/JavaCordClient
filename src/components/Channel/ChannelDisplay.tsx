@@ -34,9 +34,9 @@ type AuthProps = {
 const ChannelDisplay = (props: AuthProps) => {
     return(
         <div className="sidebar">
-            <CDBSidebar className="sidebar-list-styling" textColor="#fff" backgroundColor="#333">
-                <CDBSidebarHeader>My Channels</CDBSidebarHeader>
-                    <CDBSidebarContent className="sidebar-content">              
+            <div className="sidebar-list-styling">
+                <div>My Channels</div>
+                    <div className="sidebar-content">              
                         {props.channel.map((cprops: ChannelType) => {
                             return(
                                 <>
@@ -55,9 +55,9 @@ const ChannelDisplay = (props: AuthProps) => {
                             )
                         })}
                         <ChannelCreate sessionToken={props.sessionToken} getChannel={props.getChannel}/>
-                    </CDBSidebarContent>
+                    </div>
                     <Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button> 
-            </CDBSidebar>
+            </div>
         </div>
     )
 }

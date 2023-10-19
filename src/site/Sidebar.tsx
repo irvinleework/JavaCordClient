@@ -23,7 +23,7 @@ const styles = {
 }
 const Sidebar = (props: AuthProps) => {
     return(
-        <div style={styles.sideBarContainer} className='sideBarContainer'>
+        <div className='sideBarContainer'>
             <div>
                 <Channel sessionToken={props.sessionToken} getChannel={props.getChannel} deleteChannel={props.deleteChannel} channel={props.channel} clearLocalStorage={props.clearLocalStorage}/>
             </div>
