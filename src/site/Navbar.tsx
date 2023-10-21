@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import Auth from '../components/Auth/Auth';
+import Navbar from 'react-bootstrap/Navbar';
 
 type AuthProps = {
     sessionToken: string | undefined | null
     clearLocalStorage: () => void
 }
 
-const Navbar = (props: AuthProps) => {
+const Navigationbar = (props: AuthProps) => {
     return(
-        <div>
-            
-        </div>
+        <Navbar className="navigationBar" fixed="top">
+            <Navbar.Brand>Brand link</Navbar.Brand>
+        </Navbar>
     )
 }
-export default Navbar;
+export default Navigationbar

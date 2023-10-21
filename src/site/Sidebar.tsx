@@ -14,16 +14,10 @@ type AuthProps = {
     channel: ChannelType[]
 }
 
-const styles = {
-    sideBarContainer: {
-        display: "flex",
 
-    }
-
-}
 const Sidebar = (props: AuthProps) => {
     return(
-        <div className='sideBarContainer'>
+        <div className="sidebar">
             <div>
                 <Channel sessionToken={props.sessionToken} getChannel={props.getChannel} deleteChannel={props.deleteChannel} channel={props.channel} clearLocalStorage={props.clearLocalStorage}/>
             </div>

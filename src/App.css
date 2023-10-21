@@ -1,16 +1,30 @@
 .App {
   height: 100%;
 }
-
-.sidebar {
+.navigationBar {
+  
+  border: 1px solid black;
+}
+.sidebarContainer {
   display: flex;
-  height: 100vh;
+  height: 70vh;
+  width: 30vh;
   overflow: scroll initial;
   flex-direction: row;
+  border: 1px solid black;
+  justify-content: center;
+  text-align: center;
 }
-.sideBarContainer {
+.sidebar {
   display: flex;
 }
+.sidebarHeader {
+  margin: 20px;
+  font-size: x-large;
+  font-weight: bolder;
+}
+
+
 #loginBackground {
   height: 100vh;
   background: #9370DB;
@@ -106,7 +120,6 @@
 .linkButton {
   width: 200px;
   height: 50px;
-  margin-left: 20px;
 }
 .inputWrapper {
   display: flex;
@@ -118,7 +131,6 @@
   bottom: 0;
   position: -webkit-sticky;
   width: 150vh;
-  z-index: 2;
 }
 
 /* .friendBox {

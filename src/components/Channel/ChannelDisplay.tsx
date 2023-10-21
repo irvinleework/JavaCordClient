@@ -1,18 +1,11 @@
 import React from 'react';
 import {Route, Link, Routes, useParams} from 'react-router-dom'
-import {Row, Button, Col} from 'reactstrap';
+import {List, Row, Button, Col} from 'reactstrap';
 import ChannelCreate from './ChannelCreate'
 import ChannelEntryDisplay from '../ChannelEntry/ChannelEntryDisplay';
 import ChannelEntry from '../ChannelEntry/ChannelEntry'
-const cdbreact = require('cdbreact');
-const {
-    CDBSidebar,
-    CDBSidebarContent,
-    CDBSidebarFooter,
-    CDBSidebarHeader,
-    CDBSidebarMenu,
-    CDBSidebarMenuItem,
-  } = cdbreact;
+import 'bootstrap/dist/css/bootstrap.css';
+
 type ChannelType = {
     name?: string
     channelId: string
@@ -33,18 +26,18 @@ type AuthProps = {
 
 const ChannelDisplay = (props: AuthProps) => {
     return(
-        <div className="sidebar">
-            <div className="sidebar-list-styling">
-                <div>My Channels</div>
-                    <div className="sidebar-content">              
+        <div className="sidebarContainer">
+            <div className="sidebarWrapper">
+                <div className="sidebarHeader">My Channels</div>
+                    <div className="sidebarContent">              
                         {props.channel.map((cprops: ChannelType) => {
                             return(
                                 <>
                                 <Col>
                                 <div>
-                                    <ul className="sidebar-list list-unstyled" key={cprops.channelId}>
+                                    <List type="unstyled" className="sidebarList" key={cprops.channelId}>
                                         <li><Link to={`/channelEntry/${cprops.channelId}`}><Button className='linkButton' onClick={() => {console.log('button clicked')}}>{cprops.name}</Button></Link></li>
-                                    </ul>
+                                    </List>
                                 </div>
                                 <div className='iconPosition'>
                                     <div className="channelEditButton" onClick={() => {props.editUpdateChannel(cprops); props.updateTrue()}}><i className="fas fa-edit fa-lg"></i></div>

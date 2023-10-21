@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import {Button} from 'reactstrap'
 import {Router, Route, Routes} from 'react-router-dom'
 import { ChannelType } from '../components/Interface/ChannelType';
-import Navbar from './Navbar';
+import Navigationbar from './Navbar';
 import Friendbar from './Friendbar'
 import APIURL from '../helpers/environment'
 
@@ -86,7 +86,7 @@ deleteChannel = (channelId: string) => {
 render() {
     return(
         <div className='homeContainer'>
-            <Navbar sessionToken={this.props.sessionToken} clearLocalStorage={this.props.clearLocalStorage}/>
+            <Navigationbar sessionToken={this.props.sessionToken} clearLocalStorage={this.props.clearLocalStorage}/>
             <Sidebar sessionToken={this.props.sessionToken} getChannel={this.getChannel} deleteChannel={this.deleteChannel} channel={this.state.channel} clearLocalStorage={this.props.clearLocalStorage}/>
             <Friendbar sessionToken={this.props.sessionToken} channel={this.state.channel}/>
         </div>
