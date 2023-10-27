@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Auth from '../components/Auth/Auth';
 import Navbar from 'react-bootstrap/Navbar';
+import {Button} from 'reactstrap';
 
 type AuthProps = {
     sessionToken: string | undefined | null
@@ -9,8 +10,9 @@ type AuthProps = {
 
 const Navigationbar = (props: AuthProps) => {
     return(
-        <Navbar className="navigationBar" fixed="top">
+        <Navbar className="navigationBar">
             <Navbar.Brand>Brand link</Navbar.Brand>
+            <Button className="logButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button> 
         </Navbar>
     )
 }

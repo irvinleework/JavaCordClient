@@ -24,8 +24,10 @@ class ChannelEntryUpdate extends Component<AuthProps & WithRouterProps, ChannelE
     }
     updateChannelEntry = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const {match} = this.props
-        fetch(`${APIURL}/channel/${match.params.channelId}/channelentry/update/${this.props.updatedChannelEntry.channelEntryId}`, {
+        const { match: { params } } = this.props;
+        const { channelId } = params as { channelId?: string };
+
+        fetch(`${APIURL}/channel/${channelId}/channelentry/update/${this.props.updatedChannelEntry.channelEntryId}`, {
             method: "PUT",
             body: JSON.stringify({
                 channelentry: {

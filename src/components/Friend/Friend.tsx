@@ -27,10 +27,12 @@ class Friend extends Component<AuthProps & WithRouterProps, FriendState> {
         }
     }
     getFriendList = () => {
-        const { match } = this.props;
+        const { match: { params } } = this.props;
+        const { channelId } = params as { channelId?: string };
+
         console.log('getFriendList called')
-        console.log(match.params.channelId)
-        fetch(`${APIURL}/channel/invited/${match.params.channelId}`, {
+        
+        fetch(`${APIURL}/channel/invited/${channelId}`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
@@ -69,8 +71,10 @@ class Friend extends Component<AuthProps & WithRouterProps, FriendState> {
         this.getFriendList()
     }
     componentDidUpdate(prevProps: Readonly<AuthProps & WithRouterProps<Readonly<Params<string>>>>, prevState: Readonly<FriendState>, snapshot?: any): void {
-        const { match } = this.props;
-        if (match.params.channelId !== prevProps.match.params.channelId) {
+        const { match: { params } } = this.props;
+        const { channelId } = params as { channelId?: string };
+
+        if (channelId !== prevProps.match.params.channelId) {
             this.getFriendList()
         }
     }

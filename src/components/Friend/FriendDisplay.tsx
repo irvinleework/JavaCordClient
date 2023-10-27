@@ -15,7 +15,7 @@ type UserType = {
 
 const FriendDisplay = (props: AuthProps) => {
     return(
-        <div className="friendbox">
+        <div className="friendBox">
             <FriendCreate sessionToken={props.sessionToken} getFriendList={props.getFriendList}></FriendCreate>
             {props.friend?.map((props: UserType) => {
                 return(

@@ -5,6 +5,9 @@ import ChannelCreate from './ChannelCreate'
 import ChannelEntryDisplay from '../ChannelEntry/ChannelEntryDisplay';
 import ChannelEntry from '../ChannelEntry/ChannelEntry'
 import 'bootstrap/dist/css/bootstrap.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+
 
 type ChannelType = {
     name?: string
@@ -41,7 +44,7 @@ const ChannelDisplay = (props: AuthProps) => {
                                 </div>
                                 <div className='iconPosition'>
                                     <div className="channelEditButton" onClick={() => {props.editUpdateChannel(cprops); props.updateTrue()}}><i className="fas fa-edit fa-lg"></i></div>
-                                    <div className="channelDeleteButton" onClick={() => {props.deleteChannel(cprops.channelId);}}><i className="fas fa-trash fa-lg"></i></div>
+                                    <div className="channelDeleteButton" onClick={() => {props.deleteChannel(cprops.channelId);}}><i className="fa-solid fa-trash"></i></div>
                                 </div>
                                 </Col>
                                 </>

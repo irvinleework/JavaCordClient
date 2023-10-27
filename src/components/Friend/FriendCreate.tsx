@@ -20,8 +20,10 @@ class FriendCreate extends Component<AuthProps & WithRouterProps, UserType> {
         }
     }
     addFriendList = () => {
-        const {match} = this.props;
-        fetch(`${APIURL}/channel/adduser/${match.params.channelId}`, {
+        const { match: { params } } = this.props;
+        const { channelId } = params as { channelId?: string };
+
+        fetch(`${APIURL}/channel/adduser/${channelId}`, {
             method: "POST",
             body: JSON.stringify({
                 user: {

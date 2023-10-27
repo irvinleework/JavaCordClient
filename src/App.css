@@ -1,13 +1,26 @@
 .App {
   height: 100%;
 }
-.navigationBar {
+.homeContainer {
+  display: flex;
+  flex-wrap: wrap;
   
+}
+.navigationBar {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 10vh;
   border: 1px solid black;
+}
+.logButton {
+  margin-left: 90vw;
+  
 }
 .sidebarContainer {
   display: flex;
-  height: 70vh;
+  
+  height: 90vh;
   width: 30vh;
   overflow: scroll initial;
   flex-direction: row;
@@ -53,11 +66,7 @@
 .loginTitle {
   font-size: 20px
 }
-.homeContainer {
-  display: flex;
-  flex-direction: row;
-  flex: 1;
-}
+
 .entryBorder {
   display: flex;
   position: relative;
@@ -72,7 +81,7 @@
   flex-direction: column;
   align-items: flex-start;
   border: 1px solid black;
-  height: 100vh;
+  height: 90vh;
   width: 150vh;
   
 }
@@ -133,6 +142,6 @@
   width: 150vh;
 }
 
-/* .friendBox {
-  z-index: 2;
-} */
+.friendBox {
+  height: 90vh;
+}

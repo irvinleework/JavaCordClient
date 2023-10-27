@@ -20,8 +20,10 @@ class ChannelEntryCreate extends Component<AuthProps & WithRouterProps, ChannelE
     }
     createChannelEntry = (e: any) => {
         // e.preventDefault()
-        const { match } = this.props;
-        fetch(`${APIURL}/channel/${match.params.channelId}/channelentry/create`, {
+        const { match: { params } } = this.props;
+        const { channelId } = params as { channelId?: string };
+
+        fetch(`${APIURL}/channel/${channelId}/channelentry/create`, {
             method: "POST",
             body: JSON.stringify({
                 channelentry: {

@@ -7,7 +7,7 @@ import ChannelEntryDisplay from './ChannelEntryDisplay'
 import {ChannelType} from '../Interface/ChannelType'
 import { withRouter, WithRouterProps } from '../../services/withRouter'
 import { Params } from 'react-router-dom';
-
+import { useParams } from 'react-router-dom';
 
 interface ChannelEntryType {
     entry: string
@@ -18,7 +18,7 @@ interface ChannelEntryType {
 
 interface AuthProps {
     sessionToken: string | undefined | null
-    channel: any
+    channel: ChannelType[]
 }
 
 interface ChannelEntryState {
@@ -26,6 +26,7 @@ interface ChannelEntryState {
     updateActive: boolean
     updatedChannelEntry: ChannelEntryType
 }
+
 
 class ChannelEntry extends Component<AuthProps & WithRouterProps, ChannelEntryState> {
     constructor(props: AuthProps & WithRouterProps) {
@@ -41,10 +42,13 @@ class ChannelEntry extends Component<AuthProps & WithRouterProps, ChannelEntrySt
     }
     
     getChannelEntry = () => {
+        const { match: { params } } = this.props;
+        const { channelId } = params as { channelId?: string };
+
         const { match } = this.props;
         console.log("get channel entry called")
-        console.log(match.params.channelId)
-        fetch(`${APIURL}/channel/${match.params.channelId}/channelentry`, {
+        // console.log(match.params.channelId)
+        fetch(`${APIURL}/channel/${channelId}/channelentry`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",
@@ -69,8 +73,10 @@ class ChannelEntry extends Component<AuthProps & WithRouterProps, ChannelEntrySt
         this.getChannelEntry()
     }
     componentDidUpdate(prevProps: Readonly<AuthProps & WithRouterProps<Readonly<Params<string>>>>, prevState: Readonly<ChannelEntryState>, snapshot?: any): void {
-        const { match } = this.props;
-        if (match.params.channelId !== prevProps.match.params.channelId) {
+        const { match: { params } } = this.props;
+        const { channelId } = params as { channelId?: string };
+
+        if (channelId !== prevProps.match.params.channelId) {
             this.getChannelEntry()
         }
     }
@@ -88,11 +94,13 @@ class ChannelEntry extends Component<AuthProps & WithRouterProps, ChannelEntrySt
     
     deleteChannelEntry = (channelEntryId: string) => {
             const proceed = window.confirm("This will delete your Channel")
-            const { match } = this.props;
+            const { match: { params } } = this.props;
+            const { channelId } = params as { channelId?: string };
+
             if (proceed) {
                 console.log("deleteChannelEntry function called")
     
-                fetch(`${APIURL}/channel/${match.params.channelId}/channelentry/delete/${channelEntryId}`, {
+                fetch(`${APIURL}/channel/${channelId}/channelentry/delete/${channelEntryId}`, {
                     method: "DELETE",
                     headers: new Headers({
                         "Content-Type": "application/json",
