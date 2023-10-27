@@ -23,24 +23,28 @@ type AuthProps = {
 
 const ChannelEntryDisplay = (props: AuthProps) => {
     return(
+            <div className='entryBorderWrapper'>
         <div  className="entryBorder">
             
                 {props.channelEntry.map((cprops: ChannelEntryType) => {
                     return(
+                        
                         <div className='channelEntryText'>
-                        <ul /*style={styles.listNoMargin}*/ className="channelEntryList" key={cprops.channelEntryId}>
+                        <ul className="channelEntryList" key={cprops.channelEntryId}>
                             <li className="channelEntryUser">{cprops.user.userName}</li>
                             <li>{cprops.entry}</li>
                         </ul>
                         <Button className="button" type="button" outline onClick={() => {props.editUpdateChannelEntry(cprops); props.updateTrue()}}>Edit</Button>
                         <Button className="button" type="button" outline onClick={() => {props.deleteChannelEntry(cprops.channelEntryId)}}>Delete</Button>
                         </div>
+                        
                     )
                 })}
+            </div>
             <div className='channelEntryInput'>
             <ChannelEntryCreate sessionToken={props.sessionToken} getChannelEntry={props.getChannelEntry} channel={props.channel}/>
             </div>
-         </div>
+            </div>
     )
 }
 

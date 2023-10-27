@@ -1,10 +1,17 @@
 .App {
   height: 100%;
 }
+.loginTitle {
+  color: white;
+}
 .homeContainer {
   display: flex;
   flex-wrap: wrap;
   
+}
+.codeIcon {
+  font-size: 90px;
+  margin-bottom: 5px;
 }
 .navigationBar {
   display: flex;
@@ -40,7 +47,7 @@
 
 #loginBackground {
   height: 100vh;
-  background: #9370DB;
+  background: #3aafa9;
 }
 
 .loginContainer {
@@ -52,7 +59,7 @@
   border: 3px solid black;
   border-radius: 12px;
   padding: 20px;
-  background: gray;
+  background: #2b7a78;
   top: 100px;
 }
 #loginHeader {
@@ -79,9 +86,9 @@
   overflow-x: hidden; */
   overflow-y: scroll;
   flex-direction: column;
-  align-items: flex-start;
+  
   border: 1px solid black;
-  height: 90vh;
+  height: 85vh;
   width: 150vh;
   
 }
@@ -98,11 +105,15 @@
     background-color: gray;
   
 }
+.entryBorderWrapper {
+  display: flex;
+  height: 90vh;
+}
 .channelEntryText {
   display: flex;
   width: 100%;
   border: 1px solid black;
-
+ 
 }
 .channelEntryUser {
   font-weight: 700;
@@ -140,6 +151,9 @@
   bottom: 0;
   position: -webkit-sticky;
   width: 150vh;
+  height: 5%;
+  border: 1px solid black;
+  padding-top: 5px;
 }
 
 .friendBox {

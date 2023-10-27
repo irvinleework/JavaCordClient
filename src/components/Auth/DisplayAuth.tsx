@@ -1,6 +1,11 @@
 import React from 'react';
 import {Button, Form, Row, Col, Container} from "reactstrap"
+import { SizeProp, library } from '@fortawesome/fontawesome-svg-core'
 
+// import your icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { faCode } from '@fortawesome/free-solid-svg-icons'
 type AuthProps = {
     email: string,
     password: string,
@@ -23,7 +28,7 @@ const DisplayAuth = (props: AuthProps) => {
                 <Row>
                     <div>
                         <h1 id="loginHeader">JAVACORD</h1>
-                        <i className="fas fa-code fa-5x"></i>
+                        <FontAwesomeIcon icon={faCode as IconProp} className="codeIcon" />
                     </div>
                     <div>
                         <Form className="login" onSubmit={props.handleSubmit}>
