@@ -11,7 +11,7 @@ type AuthProps = {
 const Navigationbar = (props: AuthProps) => {
     return(
         <Navbar className="navigationBar">
-            <Navbar.Brand>Brand link</Navbar.Brand>
+            <Navbar.Brand>JavaCord</Navbar.Brand>
             <Button className="logButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button> 
         </Navbar>
     )

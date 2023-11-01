@@ -1,11 +1,8 @@
 import React from 'react';
 import {Button, Form, Row, Col, Container} from "reactstrap"
 import { SizeProp, library } from '@fortawesome/fontawesome-svg-core'
+import { TypeAnimation } from 'react-type-animation';
 
-// import your icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import { faCode } from '@fortawesome/free-solid-svg-icons'
 type AuthProps = {
     email: string,
     password: string,
@@ -26,10 +23,25 @@ const DisplayAuth = (props: AuthProps) => {
         <div id="loginBackground">
             <Container className="loginContainer">
                 <Row>
-                    <div>
-                        <h1 id="loginHeader">JAVACORD</h1>
-                        <FontAwesomeIcon icon={faCode as IconProp} className="codeIcon" />
-                    </div>
+                    <TypeAnimation className="typeAnimation"
+                    sequence={[
+                        "</>",
+                        1000,
+                        "<KavaCord/>",
+                        1500,
+                        "<JavaVord/>",
+                        1500,
+                        "<JavaCOrd/>",
+                        1500,
+                        "<JavaCord/>"
+                    ]}
+                    wrapper="span"
+                    speed={1}
+                    repeat={0}
+                    deletionSpeed={3}
+                    style={{ fontSize: '7em'}}
+                    cursor={false}
+                    />
                     <div>
                         <Form className="login" onSubmit={props.handleSubmit}>
                             <h3>{props.title()}</h3>

@@ -9,9 +9,9 @@
   flex-wrap: wrap;
   
 }
-.codeIcon {
-  font-size: 90px;
-  margin-bottom: 5px;
+.typeAnimation {
+  font-family: "Gill Sans", sans-serif;
+  font-weight: bolder;
 }
 .navigationBar {
   display: flex;
