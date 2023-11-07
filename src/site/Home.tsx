@@ -6,19 +6,22 @@ import { ChannelType } from '../components/Interface/ChannelType';
 import Navigationbar from './Navbar';
 import Friendbar from './Friendbar'
 import APIURL from '../helpers/environment'
-
+import Channel from '../components/Channel/Channel'
+import ChannelEntry from '../components/ChannelEntry/ChannelEntry';
 type AuthProps = {
     sessionToken: string | undefined | null
     clearLocalStorage: () => void
 }
 type ChannelState = {
     channel: ChannelType[]
+    invitedChannel: ChannelType[]
 }
 export default class Home extends Component<AuthProps, ChannelState> {
     constructor(props: AuthProps) {
         super(props)
         this.state = {
-            channel: []
+            channel: [],
+            invitedChannel: []
             }
         }
         getChannel = () => {
@@ -40,8 +43,10 @@ export default class Home extends Component<AuthProps, ChannelState> {
             })
             .catch(err => console.log(err))
         }
+     
         getInvitedChannel = () => {
-            fetch(`${APIURL}/channel/invitedchannels`, {
+            console.log("getinvitedchannel called")
+            fetch(`${APIURL}/user/invitedchannels`, {
                 method: "GET",
                 headers: new Headers({
                     "Content-Type": "application/json",
@@ -52,15 +57,17 @@ export default class Home extends Component<AuthProps, ChannelState> {
             .then(data => {
                 console.log(data)
                 this.setState({
-                    channel: data
+                    invitedChannel: data.channel
                 })
-                console.log(this.state.channel, "invited channel called")
+                console.log("invited channel called")
             })
             .catch(err => console.log(err))
         }
-componentDidMount = () => {
-    this.getChannel()
-}
+        componentDidMount = () => {
+            this.getChannel();
+            this.getInvitedChannel()
+        }
+
 deleteChannel = (channelId: string) => {
     const proceed = window.confirm("This will delete your Channel")
 
@@ -87,9 +94,14 @@ render() {
     return(
         <div className='homeContainer'>
             <Navigationbar sessionToken={this.props.sessionToken} clearLocalStorage={this.props.clearLocalStorage}/>
-            <Sidebar sessionToken={this.props.sessionToken} getChannel={this.getChannel} deleteChannel={this.deleteChannel} channel={this.state.channel} clearLocalStorage={this.props.clearLocalStorage}/>
+        
+            <Sidebar sessionToken={this.props.sessionToken} getChannel={this.getChannel} getInvitedChannel={this.getInvitedChannel} deleteChannel={this.deleteChannel} channel={this.state.channel} clearLocalStorage={this.props.clearLocalStorage}/>
+            <Routes>
+                <Route path="/channelEntry/:channelId" element={<ChannelEntry sessionToken={this.props.sessionToken} channel={this.state.channel}/>}/> 
+         </Routes>
             <Friendbar sessionToken={this.props.sessionToken} channel={this.state.channel}/>
         </div>
+    
     )
 }
 }

@@ -28,7 +28,7 @@ class Friend extends Component<AuthProps & WithRouterProps, FriendState> {
     }
     getFriendList = () => {
         const { match: { params } } = this.props;
-        const { channelId } = params as { channelId?: string };
+        const { channelId } = params as { channelId?: any };
 
         console.log('getFriendList called')
         

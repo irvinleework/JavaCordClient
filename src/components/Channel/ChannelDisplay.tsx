@@ -22,7 +22,7 @@ type AuthProps = {
     createTrue: () => void
     updateTrue: () => void
     sessionToken: string | undefined | null
-    clearLocalStorage: () => void
+    getInvitedChannel: () => void
 }
 
 
@@ -52,9 +52,11 @@ const ChannelDisplay = (props: AuthProps) => {
                         })}
                         <ChannelCreate sessionToken={props.sessionToken} getChannel={props.getChannel}/>
                     </div>
-                    <Button className="navButton" color="warning" outline onClick={props.clearLocalStorage}>Logout</Button> 
+                     
             </div>
+            
         </div>
+       
     )
 }
 

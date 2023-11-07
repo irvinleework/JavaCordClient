@@ -10,7 +10,7 @@ type AuthProps = {
     getChannel: () => void
     deleteChannel: (channelId: string) => void
     channel: ChannelType[]
-    clearLocalStorage: () => void
+    getInvitedChannel: () => void
 }
 
 type ChannelState = {
@@ -31,10 +31,7 @@ export default class Channel extends Component<AuthProps, ChannelState> {
             }
         }
     }
-    // getAddedChannel = () => {
-    //     fetch(`${APIURL}/channel/invited/${}`)
-    // }
-
+   
 
     createTrue = () => {
         this.setState({createActive: true})
@@ -61,7 +58,7 @@ export default class Channel extends Component<AuthProps, ChannelState> {
             <div>
                 {this.state.updateActive ? <ChannelUpdate updatedChannel={this.state.updatedChannel} updateFalse={this.updateFalse} getChannel={this.props.getChannel} sessionToken={this.props.sessionToken}/> : <></>}
                 {this.state.createActive ? <ChannelCreate getChannel={this.props.getChannel} sessionToken={this.props.sessionToken}/> : <></> }
-                <ChannelDisplay deleteChannel={this.props.deleteChannel} updateTrue={this.updateTrue} editUpdateChannel={this.editUpdateChannel} createTrue={this.createTrue} channel={this.props.channel} getChannel={this.props.getChannel} sessionToken={this.props.sessionToken} clearLocalStorage={this.props.clearLocalStorage}></ChannelDisplay>
+                <ChannelDisplay deleteChannel={this.props.deleteChannel} updateTrue={this.updateTrue} editUpdateChannel={this.editUpdateChannel} createTrue={this.createTrue} channel={this.props.channel} getChannel={this.props.getChannel} getInvitedChannel={this.props.getInvitedChannel} sessionToken={this.props.sessionToken}></ChannelDisplay>
             </div>
         )
     }

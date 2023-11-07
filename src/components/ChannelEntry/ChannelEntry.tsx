@@ -74,7 +74,7 @@ class ChannelEntry extends Component<AuthProps & WithRouterProps, ChannelEntrySt
     }
     componentDidUpdate(prevProps: Readonly<AuthProps & WithRouterProps<Readonly<Params<string>>>>, prevState: Readonly<ChannelEntryState>, snapshot?: any): void {
         const { match: { params } } = this.props;
-        const { channelId } = params as { channelId?: string };
+        const { channelId } = params as { channelId?: any };
 
         if (channelId !== prevProps.match.params.channelId) {
             this.getChannelEntry()

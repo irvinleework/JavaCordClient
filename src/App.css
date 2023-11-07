@@ -9,6 +9,7 @@
   flex-wrap: wrap;
   
 }
+
 .typeAnimation {
   font-family: "Gill Sans", sans-serif;
   font-weight: bolder;
@@ -28,7 +29,7 @@
   display: flex;
   
   height: 90vh;
-  width: 30vh;
+  width: 35vh;
   overflow: scroll initial;
   flex-direction: row;
   border: 1px solid black;
@@ -77,13 +78,7 @@
 .entryBorder {
   display: flex;
   position: relative;
-  /*border: 1px solid black;
-  left: 270px;
-  height: 1000px;
-  bottom: 1px;
-  width: 1700px;  */
-  /* overflow-y:scroll;
-  overflow-x: hidden; */
+
   overflow-y: scroll;
   flex-direction: column;
   
@@ -94,12 +89,13 @@
 }
 
 .channelEntryList {
+  display: flex;
   list-style: none;
-  width: 100%;
+  width: 150vh;
   font-family: "Lucida Console", "Courier New", monospace ;
   font-size: 23px;
   height: 100%;
-  
+  flex-wrap: wrap;
 }
 .channelEntryText :hover {
     background-color: gray;
@@ -111,9 +107,9 @@
 }
 .channelEntryText {
   display: flex;
-  width: 100%;
+  width: 150vh;
   border: 1px solid black;
- 
+  
 }
 .channelEntryUser {
   font-weight: 700;
@@ -156,6 +152,6 @@
   padding-top: 5px;
 }
 
-.friendBox {
-  height: 90vh;
+.friendBarWrapper {
+  
 }

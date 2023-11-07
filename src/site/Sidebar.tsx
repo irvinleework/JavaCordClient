@@ -12,6 +12,7 @@ type AuthProps = {
     getChannel: () => void
     deleteChannel: (channelId: string) => void
     channel: ChannelType[]
+    getInvitedChannel: () => void
 }
 
 
@@ -19,11 +20,9 @@ const Sidebar = (props: AuthProps) => {
     return(
         <div className="sidebar">
             <div>
-                <Channel sessionToken={props.sessionToken} getChannel={props.getChannel} deleteChannel={props.deleteChannel} channel={props.channel} clearLocalStorage={props.clearLocalStorage}/>
+                <Channel sessionToken={props.sessionToken} getChannel={props.getChannel} getInvitedChannel={props.getInvitedChannel} deleteChannel={props.deleteChannel} channel={props.channel} />
             </div>
-            <Routes>
-//                 <Route path="/channelEntry/:channelId" element={<ChannelEntry sessionToken={props.sessionToken} channel={props.channel}/>}/> 
-//         </Routes>
+           
         </div>
 
     )
