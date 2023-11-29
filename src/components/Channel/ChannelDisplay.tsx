@@ -7,7 +7,7 @@ import ChannelEntry from '../ChannelEntry/ChannelEntry'
 import 'bootstrap/dist/css/bootstrap.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-
+import { InvitedChannelType } from '../Interface/ChannelType';
 
 type ChannelType = {
     name?: string
@@ -23,6 +23,7 @@ type AuthProps = {
     updateTrue: () => void
     sessionToken: string | undefined | null
     getInvitedChannel: () => void
+    invitedChannel: InvitedChannelType[]
 }
 
 
@@ -33,20 +34,40 @@ const ChannelDisplay = (props: AuthProps) => {
             <div className="sidebarWrapper">
                 <div className="sidebarHeader">My Channels</div>
                     <div className="sidebarContent">              
-                        {props.channel.map((cprops: ChannelType) => {
+                        {props.channel.map((cprops: ChannelType, index) => {
                             return(
                                 <>
                                 <Col>
                                 <div>
-                                    <List type="unstyled" className="sidebarList" key={cprops.channelId}>
+                                <List type="unstyled" className="sidebarList" key={index}>
                                         <li><Link to={`/channelEntry/${cprops.channelId}`}><Button className='linkButton' onClick={() => {console.log('button clicked')}}>{cprops.name}</Button></Link></li>
                                     </List>
-                                </div>
+                            {props.invitedChannel.map((invitedChannel: InvitedChannelType) => {
+                                return(
+                                    
+                                
+                                        <>
+                                {invitedChannel.channel.map((channel: ChannelType) => {
+                                    return(
+                                    <>
+                                
+                                   
+                                <List type="unstyled" className="sidebarList" key={channel.channelId}>
+                                        <li><Link to={`/channelEntry/${channel.channelId}`}><Button className='linkButton' onClick={() => {console.log('button clicked')}}>{channel.name}</Button></Link></li>
+                                    </List>
+                                    </>
+                                    )  
+                                })} 
                                 <div className='iconPosition'>
                                     <div className="channelEditButton" onClick={() => {props.editUpdateChannel(cprops); props.updateTrue()}}><i className="fas fa-edit fa-lg"></i></div>
                                     <div className="channelDeleteButton" onClick={() => {props.deleteChannel(cprops.channelId);}}><i className="fa-solid fa-trash"></i></div>
                                 </div>
-                                </Col>
+                                
+                                </>
+                                )
+                            })}    
+                                    </div>
+                                    </Col>
                                 </>
                             )
                         })}

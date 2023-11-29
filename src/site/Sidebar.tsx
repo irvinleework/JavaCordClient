@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Routes, Route, Link, useParams } from 'react-router-dom';
 import Channel from '../components/Channel/Channel'
 import ChannelEntry from '../components/ChannelEntry/ChannelEntry'
-import { ChannelType } from '../components/Interface/ChannelType';
+import { ChannelType, InvitedChannelType } from '../components/Interface/ChannelType';
 import Home from './Home'
 import APIURL from '../helpers/environment'
 import Radium from 'radium'
@@ -13,6 +13,7 @@ type AuthProps = {
     deleteChannel: (channelId: string) => void
     channel: ChannelType[]
     getInvitedChannel: () => void
+    invitedChannel: InvitedChannelType[]
 }
 
 
@@ -20,7 +21,7 @@ const Sidebar = (props: AuthProps) => {
     return(
         <div className="sidebar">
             <div>
-                <Channel sessionToken={props.sessionToken} getChannel={props.getChannel} getInvitedChannel={props.getInvitedChannel} deleteChannel={props.deleteChannel} channel={props.channel} />
+                <Channel sessionToken={props.sessionToken} getChannel={props.getChannel} getInvitedChannel={props.getInvitedChannel} deleteChannel={props.deleteChannel} channel={props.channel} invitedChannel={props.invitedChannel}/>
             </div>
            
         </div>
